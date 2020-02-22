@@ -1,4 +1,4 @@
-package com.aldebaran;
+package com.lambdatauri;
 
 import android.app.Application;
 import android.content.Context;
