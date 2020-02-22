@@ -1,21 +1,17 @@
 import React, { Component } from "react";
 import styled from 'styled-components/native';
 
-import RobertoImage from '../assets/img/roberto.jpg';
-import BudImage from '../assets/img/bud.jpg';
-import GeorgeImage from '../assets/img/george.jpg';
-import KeanuImage from '../assets/img/keanu.jpg';
-
 import { Avatar, Button } from './index';
 
-const ContainerView = styled.View`
-  flex: 1;
+const Item = styled.View`
+  margin: 5px 0;
 `;
 
-const List = styled.View`
+const Person = styled.View`
   align-items: center;
   flex-direction: row;
   flex-flow: row wrap;
+  padding: 10px;
 `;
 
 const Name = styled.Text`
@@ -24,7 +20,7 @@ const Name = styled.Text`
   textAlign: center;
 `;
 
-const Social = styled.View`
+const Dates = styled.View`
   background-color: #cccccc;
   flex-direction: row;
   width: 100%;
@@ -36,30 +32,32 @@ class PeopleList extends Component {
 
     this.state = {
       list: [
-        { id: 1, hasImage: true, imagePath: RobertoImage,  name: 'Roberto Gómez Bolaños', birthDate: '21.02.1929', deathDate: '28.11.2014' },
-        { id: 2, hasImage: true, imagePath: BudImage,  name: 'Bud Spencer', birthDate: '21.02.1929', deathDate: '28.11.2014' },
-        { id: 3, hasImage: true, imagePath: GeorgeImage,  name: 'George Gaynes', birthDate: '21.02.1929', deathDate: '28.11.2014' },
-        { id: 4, hasImage: true, imagePath: KeanuImage,  name: 'Keanu Reeves', birthDate: '21.02.1929', deathDate: null }
+        { id: 1, hasImage: true, imagePath: 'https://nerdcalistenico.com.br/lambdatauri/roberto.jpg', name: 'Roberto Gómez Bolaños', birthDate: '21.02.1929', deathDate: '28.11.2014' },
+        { id: 2, hasImage: true, imagePath: 'https://nerdcalistenico.com.br/lambdatauri/bud.jpg', name: 'Bud Spencer', birthDate: '31.10.1929', deathDate: '27.06.2016' },
+        { id: 3, hasImage: true, imagePath: 'https://nerdcalistenico.com.br/lambdatauri/george.jpg', name: 'George Gaynes', birthDate: '16.05.1917', deathDate: '15.02.2016' },
+        { id: 4, hasImage: true, imagePath: 'https://nerdcalistenico.com.br/lambdatauri/keanu.jpg', name: 'Keanu Reeves', birthDate: '02.09.1964', deathDate: null }
       ],
     };
   }
 
   render() {
     return (
-      <ContainerView>
+      <>
         {this.state.list.map(item => {
           return (
-            <List key={item.id}>
-              <Avatar hasImage={item.hasImage} imagePath={item.imagePath} />
-              <Name>{item.name}</Name>
-              <Social>
+            <Item key={item.id}>
+              <Person>
+                <Avatar hasImage={item.hasImage} imagePath={item.imagePath} />
+                <Name>{item.name}</Name>
+              </Person>
+              <Dates>
                 {item.birthDate && <Button bg="#d1618a">{item.birthDate}</Button>}
                 {item.deathDate && <Button bg="#32366b">{item.deathDate}</Button>}
-              </Social>
-            </List>
+              </Dates>
+            </Item>
           );
         })}
-      </ContainerView>
+      </>
     );
   }
 }
