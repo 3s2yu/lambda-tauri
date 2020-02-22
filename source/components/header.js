@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styled from 'styled-components/native';
 
 const HeaderView = styled.Image`
-  background: yellow;
+  background: #d1618a;
   height: 80;
 `;
 

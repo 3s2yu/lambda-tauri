@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-
 import { Header, List } from '../components';
 
-class HomeScreen extends Component {
+class ListScreen extends Component {
   render() {
     return (
       <>
@@ -13,4 +12,4 @@ class HomeScreen extends Component {
   }
 }
 
-export default HomeScreen;
+export default ListScreen;

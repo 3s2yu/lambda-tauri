@@ -19,16 +19,18 @@ class Button extends Component {
 }
 
 const ButtonView = styled.TouchableHighlight`
+  alignItems: center;
   background-color: ${props => props.bg};
-  borderRadius: 4;
   height: 50;
   justifyContent: center;
-  alignItems: center;
-  width: 50;
+  padding: 0 20px;
+  width: 50%;
 `;
 
 const Text = styled.Text`
+  color: #fff;
   fontSize: 20;
+  textShadow: 0 0 3px rgba(0,0,0,0.6);
 `;
 
 export default Button;
