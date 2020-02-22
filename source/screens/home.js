@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 
-import { Contacts, Header } from '../components';
+import { Header } from '../components';
 
 class HomeScreen extends Component {
   render() {
     return (
       <>
         <Header />
-        <Contacts />
       </>
     );
   }
