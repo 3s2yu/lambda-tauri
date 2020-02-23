@@ -9,7 +9,7 @@ const Item = styled.View`
   border-radius: 10px;
   flex: 1;
   flex-direction: row;
-  margin: 5px auto;
+  margin: 10px auto;
   padding: 10px;
   width: 90%;
 `;
@@ -29,6 +29,7 @@ const Dates = styled.View`
   background-color: #ccc;
   border-radius: 4px;
   flex-direction: row;
+  margin-top: -20px;
   overflow: hidden;
 `;
 
