@@ -2,34 +2,34 @@ import React, { Component } from "react";
 import { View, Text } from 'react-native';
 import styled from 'styled-components/native';
 
-import { Avatar, Button } from './index';
+import { Avatar, Date } from './index';
 
 const Item = styled.View`
-  margin: 5px 0;
+  background-color: #e1e1e1;
+  border-radius: 10px;
+  flex: 1;
+  flex-direction: row;
+  margin: 5px auto;
+  padding: 10px;
+  width: 90%;
 `;
 
-const Person = styled.View`
-  align-items: center;
-  flex-direction: row;
-  flex-flow: row wrap;
-  margin: 0 auto;
-  width: 90%;
-  padding: 10px;
+const Description = styled.View`
+  flex: 1;
+  margin-left: 10px;
 `;
 
 const Name = styled.Text`
-  fontSize: 18;
-  margin-left: 10px;
-  textAlign: center;
+  color: #4f5052;
+  fontSize: 20;
+  margin-top: 10px;
 `;
 
 const Dates = styled.View`
-  background-color: #cccccc;
-  border-radius: 40px;
+  background-color: #ccc;
+  border-radius: 4px;
   flex-direction: row;
-  margin: 0 auto;
   overflow: hidden;
-  width: 90%;
 `;
 
 class PeopleList extends Component {
@@ -52,14 +52,14 @@ class PeopleList extends Component {
         {this.state.list.map(item => {
           return (
             <Item key={item.id}>
-              <Person>
-                <Avatar hasImage={item.hasImage} imagePath={item.imagePath} />
+              <Avatar hasImage={item.hasImage} imagePath={item.imagePath} />
+              <Description>
+                <Dates>
+                  {item.birthDate && <Date bg="#d1618a">{item.birthDate}</Date>}
+                  {item.deathDate && <Date bg="#32366b">{item.deathDate}</Date>}
+                </Dates>
                 <Name>{item.name}</Name>
-              </Person>
-              <Dates>
-                {item.birthDate && <Button bg="#d1618a">{item.birthDate}</Button>}
-                {item.deathDate && <Button bg="#32366b">{item.deathDate}</Button>}
-              </Dates>
+              </Description>
             </Item>
           );
         })}

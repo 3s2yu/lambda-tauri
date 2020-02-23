@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { TouchableHighlight, Text } from 'react-native';
+import { View, Text } from 'react-native';
 import styled from 'styled-components/native';
 
-const ButtonView = styled.TouchableHighlight`
+const Container = styled.View`
   alignItems: center;
   background-color: ${props => props.bg};
   justifyContent: center;
@@ -16,7 +16,7 @@ const TextView = styled.Text`
   textShadow: 0 0 3px rgba(0,0,0,0.6);
 `;
 
-class Button extends Component {
+class Date extends Component {
   static defaultProps = {
     bg: '#ff00ff',
     underlayColor: '#fff',
@@ -26,11 +26,11 @@ class Button extends Component {
     const { children, onPress, theme, bg, underlayColor } = this.props;
 
     return (
-      <ButtonView underlayColor={underlayColor} onPress={onPress} bg={bg}>
+      <Container underlayColor={underlayColor} onPress={onPress} bg={bg}>
         <TextView>{children}</TextView>
-      </ButtonView>
+      </Container>
     );
   }
 }
 
-export default Button;
+export default Date;

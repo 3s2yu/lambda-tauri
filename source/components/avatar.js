@@ -3,9 +3,9 @@ import { Image } from "react-native";
 import styled from 'styled-components/native';
 
 const ImageView = styled.Image`
-  border-radius: 4px;
-  height: 100;
-  width: 100;
+  border-radius: 10px;
+  height: 100px;
+  width: 100px;
 `;
 
 class Avatar extends Component {

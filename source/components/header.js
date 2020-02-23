@@ -3,12 +3,13 @@ import { View, Text } from 'react-native';
 import styled from 'styled-components/native';
 
 const HeaderView = styled.View`
-  background: #000;
+  background: #fff;
   padding: 20px;
 `;
 
 const Title = styled.Text`
-  color: #fff;
+  color: #a1a1a1;
+  font-size: 20px;
   text-align: center;
 `;
 

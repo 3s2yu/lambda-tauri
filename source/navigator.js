@@ -17,12 +17,21 @@ const MyTabs = () => {
       initialRouteName="Home"
       tabBarOptions={{
         activeTintColor: '#fff',
-        activeBackgroundColor: '#e91e63'
+        activeBackgroundColor: '#e91e63',
       }}
     >
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Search" component={SearchScreen} />
-      <Tab.Screen name="Settings" component={SettingsScreen} />
+      <Tab.Screen name="Home" component={HomeScreen} options={{
+        tabBarLabel: 'Home',
+        tabBarIcon: () => null
+      }} />
+      <Tab.Screen name="Search" component={SearchScreen} options={{
+        tabBarLabel: 'Search',
+        tabBarIcon: () => null
+      }} />
+      <Tab.Screen name="Settings" component={SettingsScreen} options={{
+        tabBarLabel: 'Settings',
+        tabBarIcon: () => null
+      }} />
     </Tab.Navigator>
   );
 }
