@@ -8,6 +8,61 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/org-3s2yu/lambda-tauri.svg)
 ![GitHub All Releases](https://img.shields.io/github/downloads/org-3s2yu/lambda-tauri/total.svg)
 
+## Generate Keystores
+
+```
+keytool -genkey -v -keystore my-upload-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
+```
+
+## Store Passwords in Keychain Access
+
+```
+// android/app/build.gradle
+
+// https://www.microcenter.com/tech_center/article/6819/how-to-open-keychain-access-in-mac-os-x
+def getPassword(String currentUser, String keyChain) {
+  def stdout = new ByteArrayOutputStream()
+  def stderr = new ByteArrayOutputStream()
+  exec {
+      commandLine 'security', '-q', 'find-generic-password', '-a', currentUser, '-s', keyChain, '-w'
+      standardOutput = stdout
+      errorOutput = stderr
+      ignoreExitValue true
+  }
+  //noinspection GroovyAssignabilityCheck
+    stdout.toString().trim()
+}
+
+def pass = getPassword("hemersonvianna","android_keystore")
+
+signingConfigs {
+  release {
+    if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
+      storeFile file(MYAPP_UPLOAD_STORE_FILE)
+      storePassword pass
+      keyAlias MYAPP_UPLOAD_KEY_ALIAS
+      keyPassword pass
+    }
+  }
+  ...
+}
+```
+
+## Generate a set of APKs from your app package
+
+```
+// download
+https://github.com/google/bundletool/releases
+// or
+brew install bundletool
+
+bundletool build-apks --bundle=/MyApp/my_app.aab --output=/MyApp/my_app.apks
+  --ks=/MyApp/keystore.jks
+  --ks-pass=file:/MyApp/keystore.pwd
+  --ks-key-alias=MyKeyAlias
+  --key-pass=file:/MyApp/key.pwd
+```
+
 ## Contributing
 
 - Fork it!

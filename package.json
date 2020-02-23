@@ -18,7 +18,8 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
-    "apk": "react-native run-android --variant=release"
+    "apk": "react-native run-android --variant=release",
+    "release:android": "cd ./android && ./gradlew bundleRelease"
   },
   "dependencies": {
     "react": "16.9.0",
