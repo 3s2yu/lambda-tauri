@@ -5,9 +5,8 @@ import styled from 'styled-components/native';
 const ButtonView = styled.TouchableHighlight`
   alignItems: center;
   background-color: ${props => props.bg};
-  height: 50;
   justifyContent: center;
-  padding: 0 20px;
+  padding: 10px 20px;
   width: 50%;
 `;
 

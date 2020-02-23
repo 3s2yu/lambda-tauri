@@ -12,6 +12,8 @@ const Person = styled.View`
   align-items: center;
   flex-direction: row;
   flex-flow: row wrap;
+  margin: 0 auto;
+  width: 90%;
   padding: 10px;
 `;
 
@@ -23,8 +25,11 @@ const Name = styled.Text`
 
 const Dates = styled.View`
   background-color: #cccccc;
+  border-radius: 40px;
   flex-direction: row;
-  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  width: 90%;
 `;
 
 class PeopleList extends Component {
