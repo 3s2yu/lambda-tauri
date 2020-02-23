@@ -5,8 +5,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { useScreens } from 'react-native-screens';
 import Icon from 'react-native-vector-icons/EvilIcons';
 
-import { Button } from './components';
-
 import HomeScreen from './screens/home';
 import SearchScreen from './screens/search';
 import SettingsScreen from './screens/settings';

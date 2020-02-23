@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { SafeAreaView, ScrollView, StatusBar, Platform, View, Text } from 'react-native';
 import styled from 'styled-components/native';
-import { FormattedProvider, FormattedMessage } from 'react-native-globalize';
+import { GlobalizeProvider, loadMessages, FormattedMessage } from 'react-native-globalize';
 
 import { changeLanguage } from '../actions'
 import { Button } from '../components';
@@ -15,8 +15,10 @@ const ContainerView = styled.View`
 `;
 
 const TitleText = styled.Text`
-  fontSize: 30;
+  font-size: 30px;
 `;
+
+loadMessages(messages);
 
 class SettingsScreen extends Component {
   render() {
@@ -25,7 +27,7 @@ class SettingsScreen extends Component {
         {Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}
         <SafeAreaView>
           <ScrollView>
-          <FormattedProvider locale={this.props.curState} messages={messages}>
+          <GlobalizeProvider locale={this.props.curState}>
             <ContainerView>
               <TitleText>
                 <FormattedMessage message="Settings" />
@@ -33,7 +35,7 @@ class SettingsScreen extends Component {
               <Button text="PT-BR" onPress={() => {this.props.changeLanguage('pt')}} />
               <Button text="EN" onPress={() => {this.props.changeLanguage('en')}} />
             </ContainerView>
-          </FormattedProvider>
+          </GlobalizeProvider>
           </ScrollView>
         </SafeAreaView>
       </Fragment>
