@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
-import { TouchableHighlight, Text } from 'react-native';
+import { TouchableOpacity, Text } from 'react-native';
 import styled from 'styled-components/native';
 
-const ButtonView = styled.TouchableHighlight`
-  alignItems: center;
+const ButtonView = styled.TouchableOpacity`
+  align-items: center;
   background-color: ${props => props.bg};
-  justifyContent: center;
+  border-radius: 6px;
+  margin-left: 20px;
   padding: 5px;
-  width: 50%;
+  width: 20%;
 `;
 
-const TextView = styled.Text`
-  color: #fff;
-  fontSize: 17;
-  textShadow: 0 0 3px rgba(0,0,0,0.6);
+const ContentView = styled.Text`
+  text-align: center;
 `;
 
 class Button extends Component {
@@ -26,8 +25,8 @@ class Button extends Component {
     const { children, onPress, theme, bg, underlayColor } = this.props;
 
     return (
-      <ButtonView underlayColor={underlayColor} onPress={onPress} bg={bg}>
-        <TextView>{children}</TextView>
+      <ButtonView underlayColor={underlayColor} onPress={onPress} bg={bg} underlayColor="#ccc">
+        <ContentView>{children}</ContentView>
       </ButtonView>
     );
   }

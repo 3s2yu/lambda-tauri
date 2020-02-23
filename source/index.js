@@ -1,4 +1,3 @@
-import 'react-native-gesture-handler';
 import React, { Component, useEffect } from 'react';
 import { Provider, connect } from 'react-redux';
 import { ThemeProvider } from 'styled-components';

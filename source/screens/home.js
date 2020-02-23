@@ -12,7 +12,7 @@ class HomeScreen extends Component {
           <ScrollView>
             <Header />
             <Content>
-              <List />
+              <List navigation={this.props.navigation} />
             </Content>
           </ScrollView>
         </SafeAreaView>

@@ -11,7 +11,7 @@ class SearchScreen extends Component {
           <ScrollView>
           <Header />
           <Content>
-            <List />
+            <List navigation={this.props.navigation.navigation} />
           </Content>
           </ScrollView>
         </SafeAreaView>
