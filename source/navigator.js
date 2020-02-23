@@ -1,5 +1,5 @@
-import { createBottomTabNavigator } from "react-navigation-tabs";
-import { createAppContainer } from "react-navigation";
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { enableScreens } from 'react-native-screens';
 
 import HomeScreen from './screens/home';
@@ -21,4 +21,4 @@ const AppNavigator = createBottomTabNavigator({
   },
 });
 
-export default createAppContainer(AppNavigator);
+export default NavigationContainer(AppNavigator);

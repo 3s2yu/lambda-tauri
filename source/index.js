@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import React, { Component, Fragment, useEffect } from 'react';
 import { SafeAreaView, ScrollView, StatusBar, Platform } from 'react-native';
 import { Provider, connect } from 'react-redux';
