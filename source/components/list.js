@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import { View, Text } from 'react-native';
 import styled from 'styled-components/native';
+import { ActivityIndicator } from 'react-native';
 
 import { Avatar, Button } from './index';
 
@@ -43,6 +45,7 @@ class PeopleList extends Component {
   render() {
     return (
       <>
+        <ActivityIndicator size="large" color="#0000ff" />
         {this.state.list.map(item => {
           return (
             <Item key={item.id}>

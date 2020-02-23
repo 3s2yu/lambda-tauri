@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment, useEffect } from 'react';
+import { SafeAreaView, ScrollView, StatusBar, Platform } from 'react-native';
 import { Provider, connect } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import { FormattedProvider } from 'react-native-globalize';
+import SplashScreen from 'react-native-splash-screen';
 
 import store from './store';
 import messages from './messages';
@@ -27,14 +29,23 @@ const mapStateToProps = state => {
 
 const ConnectedRootContainer = connect(mapStateToProps,null)(RootContainer);
 
-class App extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <ConnectedRootContainer />
-      </Provider>
-    );
-  }
-}
+const App = () => {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
+
+  return (
+    <Fragment>
+      {Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}
+      <SafeAreaView>
+        <ScrollView contentInsetAdjustmentBehavior="automatic">
+          <Provider store={store}>
+            <ConnectedRootContainer />
+          </Provider>
+        </ScrollView>
+      </SafeAreaView>
+    </Fragment>
+  );
+};
 
 export default App;
