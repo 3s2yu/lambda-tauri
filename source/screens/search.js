@@ -1,15 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import { SafeAreaView, ScrollView, StatusBar, Platform, View } from 'react-native';
 import { Header, Content, List } from '../components';
 
 class SearchScreen extends Component {
   render() {
     return (
-      <>
-        <Header />
-        <Content>
-          <List />
-        </Content>
-      </>
+      <Fragment>
+        {Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}
+        <SafeAreaView>
+          <ScrollView>
+          <Header />
+          <Content>
+            <List />
+          </Content>
+          </ScrollView>
+        </SafeAreaView>
+      </Fragment>
     );
   }
 }

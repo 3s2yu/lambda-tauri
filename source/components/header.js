@@ -4,8 +4,7 @@ import styled from 'styled-components/native';
 
 const HeaderView = styled.View`
   background: #000;
-  height: 80;
-  padding: 40px 0 0;
+  padding: 20px;
 `;
 
 const Title = styled.Text`

@@ -1,6 +1,5 @@
 import 'react-native-gesture-handler';
-import React, { Component, Fragment, useEffect } from 'react';
-import { SafeAreaView, ScrollView, StatusBar, Platform } from 'react-native';
+import React, { Component, useEffect } from 'react';
 import { Provider, connect } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import { FormattedProvider } from 'react-native-globalize';
@@ -36,16 +35,9 @@ const App = () => {
   }, []);
 
   return (
-    <Fragment>
-      {Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}
-      <SafeAreaView>
-        <ScrollView contentInsetAdjustmentBehavior="automatic">
-          <Provider store={store}>
-            <ConnectedRootContainer />
-          </Provider>
-        </ScrollView>
-      </SafeAreaView>
-    </Fragment>
+    <Provider store={store}>
+      <ConnectedRootContainer />
+    </Provider>
   );
 };
 
