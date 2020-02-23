@@ -12,7 +12,7 @@ const Container = styled.View`
 
 const TextView = styled.Text`
   color: #fff;
-  fontSize: 17;
+  font-size: 17px;
   textShadow: 0 0 3px rgba(0,0,0,0.6);
 `;
 

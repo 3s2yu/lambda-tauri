@@ -63,6 +63,28 @@ bundletool build-apks --bundle=/MyApp/my_app.aab --output=/MyApp/my_app.apks
   --key-pass=file:/MyApp/key.pwd
 ```
 
+## Create Tag
+
+Current tag example: 1.0.0-beta.4
+
+Command:
+
+```bash
+yarn release:git 1.0.0-beta.5
+```
+
+Questions and answers:
+
+```sh
+- ? Show updated files? `Yes`
+- M  package.json
+
+- ? Commit (Release 1.0.0-beta.5)? `Yes`
+- ? Tag (1.0.0-beta.5)? `Yes`
+- ? Push? `Yes`
+- ? Publish "lambdatauri" to npm? `No`
+```
+
 ## Contributing
 
 - Fork it!

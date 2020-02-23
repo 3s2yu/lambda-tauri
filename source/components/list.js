@@ -22,7 +22,7 @@ const Description = styled.View`
 
 const Name = styled.Text`
   color: #4f5052;
-  fontSize: 20;
+  font-size: 20px;
   margin: 5px 0;
 `;
 

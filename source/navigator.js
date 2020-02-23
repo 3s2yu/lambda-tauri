@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-import { useScreens } from 'react-native-screens';
+import { enableScreens } from 'react-native-screens';
 import Icon from 'react-native-vector-icons/EvilIcons';
 
 import HomeScreen from './screens/home';
@@ -10,7 +10,7 @@ import SearchScreen from './screens/search';
 import SettingsScreen from './screens/settings';
 import ProfileScreen from './screens/profile';
 
-useScreens();
+enableScreens();
 
 const Tab = createBottomTabNavigator();
 
@@ -38,19 +38,19 @@ const Tabs = ({ navigation, route }) => {
       }}
     >
       <Tab.Screen name="Home" component={HomeScreen} options={{
-        tabBarLabel: 'Home',
+        tabBarLabel: 'Início',
         tabBarIcon: ({ color, size }) => {
           return <Icon name="calendar" size={size} color={color} />;
         }
       }} />
       <Tab.Screen name="Search" component={SearchScreen} options={{
-        tabBarLabel: 'Search',
+        tabBarLabel: 'Busca',
         tabBarIcon: ({ color, size }) => {
           return <Icon name="search" size={size} color={color} />;
         }
       }} />
       <Tab.Screen name="Settings" component={SettingsScreen} options={{
-        tabBarLabel: 'Settings',
+        tabBarLabel: 'Config',
         tabBarIcon: ({ color, size }) => {
           return <Icon name="gear" size={size} color={color} />;
         }

@@ -19,7 +19,8 @@
     "test": "jest",
     "lint": "eslint .",
     "apk": "react-native run-android --variant=release",
-    "release:android": "cd ./android && ./gradlew bundleRelease"
+    "release:android": "cd ./android && ./gradlew bundleRelease",
+    "release:git": "./node_modules/.bin/release-it --no-npm.publish --git.tagName='v${version}' --github.release"
   },
   "dependencies": {
     "@react-native-community/masked-view": "0.1.6",
@@ -52,7 +53,8 @@
     "jest": "25.1.0",
     "metro-react-native-babel-preset": "0.58.0",
     "prettier": "1.19.1",
-    "react-test-renderer": "16.12.0"
+    "react-test-renderer": "16.12.0",
+    "release-it": "12.6.1"
   },
   "jest": {
     "preset": "react-native"
