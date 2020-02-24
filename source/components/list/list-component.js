@@ -4,7 +4,7 @@ import moment from 'moment';
 import Icon from 'react-native-vector-icons/EvilIcons';
 
 import { Avatar, Button, Label } from '../index';
-import { UIItem, UIContent, UIDescription, UIName, UIDates, UIButtons, UIOptionsButton } from './list-style';
+import { UIItem, UIContent, UIDescription, UIName, UIDates, UIButtons, UIHeader } from './list-style';
 
 import services from '../../services';
 import data from '../../data';
@@ -18,6 +18,7 @@ class PeopleList extends Component {
     };
 
     this.handleLink = this.handleLink.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
     this.handleOptions = this.handleOptions.bind(this);
 
     services.storage.getItem('list').then(res => {
@@ -32,6 +33,10 @@ class PeopleList extends Component {
 
   handleLink(name, image) {
     return () => this.props.navigation.navigate('Profile', { name, image });
+  }
+
+  handleEdit(name) {
+    return () => this.props.navigation.navigate('Cadastre', { name });
   }
 
   getDaysLeft(date) {
@@ -91,28 +96,34 @@ class PeopleList extends Component {
           return (
             <UIItem key={item.id}>
               <UIDescription>
-                <UIName>{item.name}</UIName>
+                <UIHeader>
+                  <UIName>{item.name}</UIName>
+                  <Button bg="transparent" width="auto" onPress={this.handleOptions(item.id)}>
+                    {item.open ? <Icon name="minus" size={32} color="#a1a1a1" /> : <Icon name="plus" size={32} color="#a1a1a1" />}
+                  </Button>
+                </UIHeader>
                 <UIContent>
                   <Avatar hasImage={item.hasImage} imagePath={item.imagePath} />
                   <UIDescription>
                     <UIDates>
-                      {item.birthDate && <Label bg="#d1618a" width={!item.deathDate ? '100%' : '50%'} daysLeft={this.getDaysLeft(item.birthDate)}>{item.birthDate}</Label>}
-                      {item.deathDate && <Label bg="#32366b" daysLeft={this.getDaysLeft(item.deathDate)}>{item.deathDate}</Label>}
+                      {item.birthDate &&
+                      <Label bg="#d1618a" width={!item.deathDate ? '100%' : '50%'} daysLeft={this.getDaysLeft(item.birthDate)} icon={<Icon name="star" size={20} color="#fff" />}>
+                        {item.birthDate}
+                      </Label>}
+                      {item.deathDate &&
+                      <Label bg="#32366b" daysLeft={this.getDaysLeft(item.deathDate)} icon={<Icon name="heart" size={20} color="#fff" />}>
+                        {item.deathDate}
+                      </Label>}
                     </UIDates>
-                    <UIOptionsButton>
-                      <Button bg="transparent" width="100%" onPress={this.handleOptions(item.id)}>
-                        {item.open ? <Icon name="minus" size={32} color="#a1a1a1" /> : <Icon name="plus" size={32} color="#a1a1a1" />}
-                      </Button>
-                    </UIOptionsButton>
                   </UIDescription>
                 </UIContent>
               </UIDescription>
               <Animated.View style={[{ height: 0, overflow:'hidden'}, this.toggle(item.open, item.animation)]}>
                 <UIButtons>
-                  <Button bg={item.active ? '#000' : '#f1f1f1'} onPress={() => alert(item.name)}>
+                  <Button bg={item.active ? '#333' : '#f1f1f1'} onPress={() => alert(item.name)}>
                     <Icon name="bell" size={32} color={item.active ? '#fff' : '#32366b'} />
                   </Button>
-                  <Button bg="#f1f1f1" leftSpace={true} onPress={() => alert(item.name)}>
+                  <Button bg="#f1f1f1" leftSpace={true} onPress={this.handleEdit(item.name)}>
                     <Icon name="pencil" size={32} color="#32366b" />
                   </Button>
                   <Button bg="#d15151" leftSpace={true} onPress={() => alert(item.name)}>

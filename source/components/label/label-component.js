@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { UIContainer, UIText, UIFlag } from './label-style';
+import { UIContainer, UIText, UIFlag, UIIcon } from './label-style';
 
 class Label extends Component {
   static defaultProps = {
@@ -9,10 +9,11 @@ class Label extends Component {
   }
 
   render() {
-    const { children, bg, width, daysLeft } = this.props;
+    const { children, bg, width, icon, daysLeft } = this.props;
 
     return (
       <UIContainer bg={bg} width={width}>
+        {icon && <UIIcon>{icon}</UIIcon>}
         <UIText>{children}</UIText>
         <UIFlag>{daysLeft}</UIFlag>
       </UIContainer>

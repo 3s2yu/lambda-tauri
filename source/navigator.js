@@ -9,6 +9,7 @@ import HomeScreen from './screens/home';
 import SearchScreen from './screens/search';
 import SettingsScreen from './screens/settings';
 import ProfileScreen from './screens/profile';
+import CadastreScreen from './screens/cadastre';
 
 enableScreens();
 
@@ -34,7 +35,7 @@ const Tabs = ({ navigation, route }) => {
     <Tab.Navigator
       tabBarOptions={{
         activeTintColor: '#fff',
-        activeBackgroundColor: '#e91e63',
+        activeBackgroundColor: '#2f3043',
       }}
     >
       <Tab.Screen name="Home" component={HomeScreen} options={{
@@ -71,6 +72,7 @@ export default function App() {
         <Stack.Screen name="Profile" component={ProfileScreen} options={({ route }) => ({
           headerTitle: route.params.name
         })} />
+        <Stack.Screen name="Cadastre" component={CadastreScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
