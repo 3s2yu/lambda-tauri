@@ -6,13 +6,24 @@ class Button extends Component {
   static defaultProps = {
     bg: '#ff00ff',
     underlayColor: '#fff',
+    leftSpace: false,
+    rightSpace: false,
+    width: '18%'
   }
 
   render() {
-    const { children, onPress, theme, bg, underlayColor } = this.props;
+    const { children, onPress, theme, bg, underlayColor, width, leftSpace, rightSpace } = this.props;
 
     return (
-      <UIButton underlayColor={underlayColor} onPress={onPress} bg={bg} underlayColor="#ccc">
+      <UIButton
+        underlayColor={underlayColor}
+        onPress={onPress}
+        bg={bg}
+        width={width}
+        leftSpace={leftSpace}
+        rightSpace={rightSpace}
+        underlayColor="#ccc"
+      >
         <UIContent>{children}</UIContent>
       </UIButton>
     );

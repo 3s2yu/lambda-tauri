@@ -3,7 +3,7 @@ import moment from 'moment';
 import Icon from 'react-native-vector-icons/EvilIcons';
 
 import { Avatar, Button, Label } from '../index';
-import { UIItem, UIContent, UIDescription, UIName, UIDates, UIButtons } from './list-style';
+import { UIItem, UIContent, UIDescription, UIName, UIDates, UIButtons, UIOptionsButton } from './list-style';
 
 import data from './data';
 
@@ -16,6 +16,7 @@ class PeopleList extends Component {
     };
 
     this.handleLink = this.handleLink.bind(this);
+    this.handleOptions = this.handleOptions.bind(this);
   }
 
   handleLink(name, image) {
@@ -36,36 +37,64 @@ class PeopleList extends Component {
     return `${result} dias`;
   }
 
+  handleOptions(id) {
+    return () => {
+      const list = this.state.list.map(item => {
+        if (typeof item.open === 'undefined') {
+          item.open = false;
+        }
+
+        if (id === item.id) {
+          item.open = !item.open;
+        }
+
+        return item;
+      });
+
+      this.setState({ list });
+    }
+  }
+
   render() {
+    const { list } = this.state;
+
     return (
       <>
-        {this.state.list.map(item => {
+        {list.map(item => {
           return (
             <UIItem key={item.id}>
-              <UIName>{item.name}</UIName>
-              <UIContent>
-                <Avatar hasImage={item.hasImage} imagePath={item.imagePath} />
-                <UIDescription>
-                  <UIDates>
-                    {item.birthDate && <Label bg="#d1618a" width={!item.deathDate ? '100%' : '50%' } daysLeft={this.getDaysLeft(item.birthDate)}>{item.birthDate}</Label>}
-                    {item.deathDate && <Label bg="#32366b" daysLeft={this.getDaysLeft(item.deathDate)}>{item.deathDate}</Label>}
-                  </UIDates>
-                  <UIButtons>
-                    <Button bg={item.active ? '#000' : '#fff'} onPress={() => alert(item.name)}>
-                      <Icon name="bell" size={32} color={item.active ? '#fff' : '#32366b'} />
-                    </Button>
-                    <Button bg="#fff" onPress={this.handleLink(item.name, { hasImage: item.hasImage, imagePath: item.imagePath })}>
-                      <Icon name="link" size={32} color="#32366b" />
-                    </Button>
-                    <Button bg="#fff" onPress={() => alert(item.name)}>
-                      <Icon name="trash" size={32} color="#32366b" />
-                    </Button>
-                    <Button bg="#fff" onPress={() => alert(item.name)}>
-                      <Icon name="pencil" size={32} color="#32366b" />
-                    </Button>
-                  </UIButtons>
-                </UIDescription>
-              </UIContent>
+              <UIDescription>
+                <UIName>{item.name}</UIName>
+                <UIContent>
+                  <Avatar hasImage={item.hasImage} imagePath={item.imagePath} />
+                  <UIDescription>
+                    <UIDates>
+                      {item.birthDate && <Label bg="#d1618a" width={!item.deathDate ? '100%' : '50%'} daysLeft={this.getDaysLeft(item.birthDate)}>{item.birthDate}</Label>}
+                      {item.deathDate && <Label bg="#32366b" daysLeft={this.getDaysLeft(item.deathDate)}>{item.deathDate}</Label>}
+                    </UIDates>
+                    <UIOptionsButton>
+                      <Button bg="transparent" width="100%" onPress={this.handleOptions(item.id)}>
+                        {item.open ? <Icon name="minus" size={32} color="#a1a1a1" /> : <Icon name="plus" size={32} color="#a1a1a1" />}
+                      </Button>
+                    </UIOptionsButton>
+                  </UIDescription>
+                </UIContent>
+              </UIDescription>
+              {item.open &&
+              <UIButtons>
+                <Button bg={item.active ? '#000' : '#f1f1f1'} onPress={() => alert(item.name)}>
+                  <Icon name="bell" size={32} color={item.active ? '#fff' : '#32366b'} />
+                </Button>
+                <Button bg="#f1f1f1" leftSpace={true} onPress={() => alert(item.name)}>
+                  <Icon name="pencil" size={32} color="#32366b" />
+                </Button>
+                <Button bg="#d15151" leftSpace={true} onPress={() => alert(item.name)}>
+                  <Icon name="trash" size={32} color="#fff" />
+                </Button>
+                <Button bg="#f1f1f1" leftSpace={true} onPress={this.handleLink(item.name, { hasImage: item.hasImage, imagePath: item.imagePath })}>
+                  <Icon name="eye" size={32} color="#32366b" />
+                </Button>
+              </UIButtons>}
             </UIItem>
           );
         })}

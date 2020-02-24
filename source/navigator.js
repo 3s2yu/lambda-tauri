@@ -68,7 +68,9 @@ export default function App() {
         <Stack.Screen name="Root" component={Tabs} options={({ route }) => ({
           headerTitle: getHeaderTitle(route),
         })} />
-        <Stack.Screen name="Profile" component={ProfileScreen} options={{ headerTitle: 'Perfil' }} />
+        <Stack.Screen name="Profile" component={ProfileScreen} options={({ route }) => ({
+          headerTitle: route.params.name
+        })} />
       </Stack.Navigator>
     </NavigationContainer>
   );
