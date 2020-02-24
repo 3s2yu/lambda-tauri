@@ -1,46 +1,9 @@
 import React, { Component } from "react";
-import { View, Text } from 'react-native';
-import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/EvilIcons';
 
-import { Avatar, Button, Date } from './index';
+import { Avatar, Button, Label } from '../index';
+import { UIItem, UIDescription, UIName, UIDates, UIButtons } from './list-style';
 
-const Item = styled.View`
-  background-color: #e1e1e1;
-  border-radius: 10px;
-  flex: 1;
-  flex-direction: row;
-  margin: 15px auto;
-  padding: 10px;
-  width: 90%;
-`;
-
-const Description = styled.View`
-  flex: 1;
-  margin-left: 10px;
-`;
-
-const Name = styled.Text`
-  color: #4f5052;
-  font-size: 20px;
-  margin: 5px 0;
-`;
-
-const Dates = styled.View`
-  background-color: #ccc;
-  border-radius: 4px;
-  flex-direction: row;
-  margin-top: -30px;
-  overflow: hidden;
-`;
-
-const Buttons = styled.View`
-  flex-direction: row;
-  justify-content: flex-end;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-`;
 
 class PeopleList extends Component {
   constructor(props) {
@@ -67,15 +30,15 @@ class PeopleList extends Component {
       <>
         {this.state.list.map(item => {
           return (
-            <Item key={item.id}>
+            <UIItem key={item.id}>
               <Avatar hasImage={item.hasImage} imagePath={item.imagePath} />
-              <Description>
-                <Dates>
-                  {item.birthDate && <Date bg="#d1618a">{item.birthDate}</Date>}
-                  {item.deathDate && <Date bg="#32366b">{item.deathDate}</Date>}
-                </Dates>
-                <Name>{item.name}</Name>
-                <Buttons>
+              <UIDescription>
+                <UIDates>
+                  {item.birthDate && <Label bg="#d1618a">{item.birthDate}</Label>}
+                  {item.deathDate && <Label bg="#32366b">{item.deathDate}</Label>}
+                </UIDates>
+                <UIName>{item.name}</UIName>
+                <UIButtons>
                   <Button bg="#fff" onPress={this.handleLink(item.name, { hasImage: item.hasImage, imagePath: item.imagePath })}>
                     <Icon name="link" size={32} color="#32366b" />
                   </Button>
@@ -85,9 +48,9 @@ class PeopleList extends Component {
                   <Button bg="#fff" onPress={() => alert(item.name)}>
                     <Icon name="pencil" size={32} color="#32366b" />
                   </Button>
-                </Buttons>
-              </Description>
-            </Item>
+                </UIButtons>
+              </UIDescription>
+            </UIItem>
           );
         })}
       </>

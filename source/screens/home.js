@@ -1,22 +1,13 @@
-import React, { Component, Fragment } from 'react';
-import { SafeAreaView, ScrollView, StatusBar, Platform } from 'react-native';
+import React, { Component } from 'react';
 
-import { Header, Content, List } from '../components';
+import { Header, Page, List } from '../components';
 
 class HomeScreen extends Component {
   render() {
     return (
-      <Fragment>
-        {Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}
-        <SafeAreaView>
-          <ScrollView>
-            <Header />
-            <Content>
-              <List navigation={this.props.navigation} />
-            </Content>
-          </ScrollView>
-        </SafeAreaView>
-      </Fragment>
+      <Page header={<Header />}>
+        <List navigation={this.props.navigation} />
+      </Page>
     );
   }
 }
