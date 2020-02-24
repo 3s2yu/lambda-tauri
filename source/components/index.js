@@ -1,8 +1,8 @@
 import Avatar from './avatar';
 import Button from './button';
 import Header from './header';
-import Content from './content';
+import Page from './page';
 import List from './list';
-import Date from './date';
+import Label from './label';
 
-export { Avatar, Button, Header, Content, List, Date };
+export { Avatar, Button, Header, Page, List, Label };
