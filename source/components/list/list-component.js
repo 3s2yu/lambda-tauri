@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Animated } from 'react-native';
 import moment from 'moment';
 import Icon from 'react-native-vector-icons/EvilIcons';
 
@@ -46,12 +47,28 @@ class PeopleList extends Component {
 
         if (id === item.id) {
           item.open = !item.open;
+          item.animation = new Animated.Value(item.open ? 0 : 50);
         }
 
         return item;
       });
 
       this.setState({ list });
+    }
+  }
+
+  toggle(open, animationValue) {
+    if (animationValue) {
+      Animated.timing(animationValue, {
+        toValue: open ? 50 : 0,
+        timing: 100
+      }).start();
+
+      return {
+        height: animationValue
+      }
+    } else {
+      return {};
     }
   }
 
@@ -80,21 +97,22 @@ class PeopleList extends Component {
                   </UIDescription>
                 </UIContent>
               </UIDescription>
-              {item.open &&
-              <UIButtons>
-                <Button bg={item.active ? '#000' : '#f1f1f1'} onPress={() => alert(item.name)}>
-                  <Icon name="bell" size={32} color={item.active ? '#fff' : '#32366b'} />
-                </Button>
-                <Button bg="#f1f1f1" leftSpace={true} onPress={() => alert(item.name)}>
-                  <Icon name="pencil" size={32} color="#32366b" />
-                </Button>
-                <Button bg="#d15151" leftSpace={true} onPress={() => alert(item.name)}>
-                  <Icon name="trash" size={32} color="#fff" />
-                </Button>
-                <Button bg="#f1f1f1" leftSpace={true} onPress={this.handleLink(item.name, { hasImage: item.hasImage, imagePath: item.imagePath })}>
-                  <Icon name="eye" size={32} color="#32366b" />
-                </Button>
-              </UIButtons>}
+              <Animated.View style={[{ height: 0, overflow:'hidden'}, this.toggle(item.open, item.animation)]}>
+                <UIButtons>
+                  <Button bg={item.active ? '#000' : '#f1f1f1'} onPress={() => alert(item.name)}>
+                    <Icon name="bell" size={32} color={item.active ? '#fff' : '#32366b'} />
+                  </Button>
+                  <Button bg="#f1f1f1" leftSpace={true} onPress={() => alert(item.name)}>
+                    <Icon name="pencil" size={32} color="#32366b" />
+                  </Button>
+                  <Button bg="#d15151" leftSpace={true} onPress={() => alert(item.name)}>
+                    <Icon name="trash" size={32} color="#fff" />
+                  </Button>
+                  <Button bg="#f1f1f1" leftSpace={true} onPress={this.handleLink(item.name, { hasImage: item.hasImage, imagePath: item.imagePath })}>
+                    <Icon name="eye" size={32} color="#32366b" />
+                  </Button>
+                </UIButtons>
+              </Animated.View>
             </UIItem>
           );
         })}
