@@ -6,18 +6,28 @@ import Icon from 'react-native-vector-icons/EvilIcons';
 import { Avatar, Button, Label } from '../index';
 import { UIItem, UIContent, UIDescription, UIName, UIDates, UIButtons, UIOptionsButton } from './list-style';
 
-import data from './data';
+import services from '../../services';
+import data from '../../data';
 
 class PeopleList extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      list: data,
+      list: [],
     };
 
     this.handleLink = this.handleLink.bind(this);
     this.handleOptions = this.handleOptions.bind(this);
+
+    services.storage.getItem('list').then(res => {
+      if (!res) {
+        console.log('storage empty!!');
+        services.storage.setItem('list', data).then(res => this.setState({ list: res }));
+      }
+
+      this.setState({ list: res });
+    });
   }
 
   handleLink(name, image) {

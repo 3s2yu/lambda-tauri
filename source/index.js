@@ -6,7 +6,7 @@ import SplashScreen from 'react-native-splash-screen';
 
 import store from './store';
 import messages from './messages';
-import { colors } from './constants'
+import { colors } from './constants';
 
 import Navigator from './navigator';
 
