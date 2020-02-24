@@ -7,7 +7,7 @@ export const UIButton = styled.TouchableOpacity`
   border-radius: 6px;
   margin-left: 20px;
   padding: 5px;
-  width: 20%;
+  width: 16%;
 `;
 
 export const UIContent = styled.Text`

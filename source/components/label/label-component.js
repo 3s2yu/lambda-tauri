@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 
-import { UIContainer, UIText } from './label-style';
+import { UIContainer, UIText, UIFlag } from './label-style';
 
 class Label extends Component {
   static defaultProps = {
-    bg: '#ff00ff',
-    underlayColor: '#fff',
+    bg: '#fff',
+    width: '50%'
   }
 
   render() {
-    const { children, onPress, theme, bg, underlayColor } = this.props;
+    const { children, bg, width, daysLeft } = this.props;
 
     return (
-      <UIContainer underlayColor={underlayColor} onPress={onPress} bg={bg}>
+      <UIContainer bg={bg} width={width}>
         <UIText>{children}</UIText>
+        <UIFlag>{daysLeft}</UIFlag>
       </UIContainer>
     );
   }
