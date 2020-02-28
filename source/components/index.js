@@ -9,7 +9,7 @@ import Icon from './icon';
 import Form from './form';
 import Input from './form/elements/input-component';
 
-import Cadastre from './cadastre';
+import RegistrationForm from './registration-form';
 
 export {
   Page,
@@ -23,5 +23,5 @@ export {
   Form,
   Input,
 
-  Cadastre
+  RegistrationForm
 };

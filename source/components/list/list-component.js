@@ -35,7 +35,7 @@ class PeopleList extends Component {
   }
 
   handleEdit(name) {
-    return () => this.props.navigation.navigate('Cadastre', { name });
+    return () => this.props.navigation.navigate('Registration', { name });
   }
 
   getDaysLeft(date) {

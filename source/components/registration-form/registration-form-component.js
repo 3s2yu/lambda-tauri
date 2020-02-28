@@ -3,9 +3,9 @@ import React, { Component } from "react";
 import config from "./elements/config";
 import { Form, Button } from '../index';
 
-import { UIView, UIErrorMessage } from './cadastre-style';
+import { UIView, UIErrorMessage } from './registration-form-style';
 
-class Cadastre extends Component {
+class RegistrationForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,7 +19,7 @@ class Cadastre extends Component {
   }
 
   handleSubmit = () => {
-    const validate = this.refs.cadastreForm.getValue();
+    const validate = this.refs.registrationForm.getValue();
     if (!validate) {
       this.setState({
         errorMessage: "Ops! Por favor verificar os dados"
@@ -43,17 +43,17 @@ class Cadastre extends Component {
     return (
       <UIView>
         <Form
-          ref="cadastreForm"
+          ref="registrationForm"
           type={struct}
           options={options}
           value={this.state.data}
           onChange={formValue => this.handleChange(formValue)}
         />
-        <Button onPress={() => this.handleSubmit()} width="100%">Editar</Button>
+        <Button onPress={() => this.handleSubmit()} width="100%">Cadastrar</Button>
         <UIErrorMessage>{errorMessage}</UIErrorMessage>
       </UIView>
     );
   }
 }
 
-export default Cadastre;
+export default RegistrationForm;

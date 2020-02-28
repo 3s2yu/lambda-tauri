@@ -7,7 +7,7 @@ import { UIPage, UIMain, UIPlus } from './page-style';
 
 class Page extends Component {
   handleLink = () => {
-    return this.props.navigation.navigate('Cadastre', {});
+    return this.props.navigation.navigate('Registration', {});
   }
 
   render() {
