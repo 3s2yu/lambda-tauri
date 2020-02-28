@@ -7,10 +7,15 @@ import { UIView } from './date-picker-style';
 const DatePickerCustom = props => {
   const { config, onChange, value } = props;
 
+  const style = {
+    backgroundColor: '#fff',
+    width: '100%'
+  };
+
   return (
     <UIView>
       <DatePicker
-        style={{ flex: 1 }}
+        style={style}
         date={value}
         mode="date"
         placeholder={config.placeholder}
@@ -22,13 +27,17 @@ const DatePickerCustom = props => {
         customStyles={{
           dateIcon: {
             position: "absolute",
-            right: 0,
+            left: 0,
             top: 4,
-            marginRight: 0
+            marginLeft: 0
           },
           dateInput: {
-            borderColor: "#FFFFFF",
-            borderBottomColor: "#3F3F3F"
+            alignItems: "flex-start",
+            borderColor: "#fff",
+            borderBottomColor: "#ccc",
+            fontSize: 17,
+            height: 40,
+            paddingLeft: 40
           },
           placeholderText: {
             alignSelf: "flex-start",
