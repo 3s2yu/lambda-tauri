@@ -4,7 +4,7 @@ import { UIButton, UIContent } from './button-style';
 
 class Button extends Component {
   static defaultProps = {
-    bg: '#ff00ff',
+    bg: '#fff',
     underlayColor: '#fff',
     leftSpace: false,
     rightSpace: false,

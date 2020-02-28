@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
 
-import { Header, Page } from '../components';
+import { Header, Page, Cadastre } from '../components';
 
 class CadastreScreen extends Component {
   render() {
-    const { name } = this.props.route.params;
 
     return (
       <Page header={<Header />}>
         <Text>Cadastro</Text>
-        <Text>{name}</Text>
+        <Cadastre />
       </Page>
     );
   }
