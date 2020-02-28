@@ -8,6 +8,7 @@ import Label from './label';
 import Icon from './icon';
 import Form from './form';
 import Input from './form/elements/input-component';
+import DatePicker from './form/elements/date-picker-component';
 
 import RegistrationForm from './registration-form';
 
@@ -22,6 +23,7 @@ export {
   Icon,
   Form,
   Input,
+  DatePicker,
 
   RegistrationForm
 };

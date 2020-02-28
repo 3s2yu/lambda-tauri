@@ -1,9 +1,8 @@
 import React from "react";
 import t from "tcomb-form-native";
-import moment from 'moment';
 
 import formValidation from "./validation";
-import { Input } from "../../index";
+import { Input, DatePicker } from "../../index";
 
 const Struct = t.struct({
   name: formValidation.name,
@@ -21,19 +20,15 @@ const options = {
       }
     },
     birthDate: {
-      label: 'Data de nascimento',
-      mode: 'date',
+      template: DatePicker,
       config: {
-        format: date => moment(date).format('DD.MM.YYYY'),
-        defaultValueText: "Clique e escolha uma data"
+        placeholder: "Selecione a data do nascimento"
       },
     },
     deathDate: {
-      label: 'Data do falecimento',
-      mode: 'date',
+      template: DatePicker,
       config: {
-        format: date => moment(date).format('DD.MM.YYYY'),
-        defaultValueText: "Clique e escolha uma data"
+        placeholder: "Selecione a data do falecimento"
       },
     },
   }

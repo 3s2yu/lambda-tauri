@@ -12,7 +12,9 @@ class RegistrationForm extends Component {
       struct: config.Struct,
       options: config.options,
       data: {
-        name: ""
+        name: "",
+        birthDate: "",
+        deathDate: ""
       },
       errorMessage: ""
     };
