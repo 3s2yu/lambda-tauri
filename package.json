@@ -34,6 +34,7 @@
     "react-native": "0.61.5",
     "react-native-gesture-handler": "1.6.0",
     "react-native-globalize": "4.0.1",
+    "react-native-image-crop-picker": "0.28.0",
     "react-native-reanimated": "1.7.0",
     "react-native-safe-area-context": "0.7.3",
     "react-native-screens": "2.0.0-beta.10",
@@ -44,7 +45,8 @@
     "redux": "4.0.5",
     "redux-logger": "3.0.6",
     "redux-thunk": "2.3.0",
-    "styled-components": "5.0.1"
+    "styled-components": "5.0.1",
+    "tcomb-form-native": "0.6.20"
   },
   "devDependencies": {
     "@babel/core": "7.8.4",
