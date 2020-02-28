@@ -63,6 +63,10 @@ bundletool build-apks --bundle=/MyApp/my_app.aab --output=/MyApp/my_app.apks
   --key-pass=file:/MyApp/key.pwd
 ```
 
+## Icons
+
+[Icons list](https://oblador.github.io/react-native-vector-icons/)
+
 ## Create Tag
 
 Current tag example: 1.0.0-beta.4

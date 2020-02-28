@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
 
 import config from "./elements/config";
 import { Form, Button } from '../index';
 
+import { UIView, UIErrorMessage } from './cadastre-style';
+
 class Cadastre extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       struct: config.Struct,
       options: config.options,
@@ -40,7 +41,7 @@ class Cadastre extends Component {
     const { struct, options, errorMessage } = this.state;
 
     return (
-      <View>
+      <UIView>
         <Form
           ref="cadastreForm"
           type={struct}
@@ -48,9 +49,9 @@ class Cadastre extends Component {
           value={this.state.data}
           onChange={formValue => this.handleChange(formValue)}
         />
-        <Button onPress={() => this.handleSubmit()}>Editar</Button>
-        <Text>{errorMessage}</Text>
-      </View>
+        <Button onPress={() => this.handleSubmit()} width="100%">Editar</Button>
+        <UIErrorMessage>{errorMessage}</UIErrorMessage>
+      </UIView>
     );
   }
 }

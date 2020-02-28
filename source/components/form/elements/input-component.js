@@ -1,17 +1,17 @@
 import React from 'react';
-import { View, Text, TextInput } from 'react-native';
+import { UIView, UILabel, UIInput } from './input-style';
 
 const Input = props => {
   const { config, onChange } = props;
 
   return (
-    <View style={{ flex: 1 }}>
-      <Text>{config.label}</Text>
-      <TextInput
+    <UIView>
+      <UILabel>{config.label}</UILabel>
+      <UIInput
         placeholder={config.placeholder}
         onChangeText={value => onChange(value)}
       />
-    </View>
+    </UIView>
   );
 };
 

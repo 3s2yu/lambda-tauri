@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { Animated } from 'react-native';
 import moment from 'moment';
-import Icon from 'react-native-vector-icons/EvilIcons';
 
-import { Avatar, Button, Label } from '../index';
+import { Avatar, Button, Label, Icon } from '../index';
 import { UIItem, UIContent, UIDescription, UIName, UIDates, UIButtons, UIHeader } from './list-style';
 
 import services from '../../services';

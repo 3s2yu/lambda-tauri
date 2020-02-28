@@ -1,20 +1,32 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { SafeAreaView, ScrollView, StatusBar, Platform } from 'react-native';
 
-import { UIMain } from './page-style';
+import { Button, Icon } from '../index';
+
+import { UIPage, UIMain, UIPlus } from './page-style';
 
 class Page extends Component {
+  handleLink = () => {
+    return this.props.navigation.navigate('Cadastre', {});
+  }
+
   render() {
     return (
-      <Fragment>
+      <UIPage>
         {Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}
-        <SafeAreaView>
-          <ScrollView>
+        <SafeAreaView style={{ flex: 1 }}>
+          <ScrollView style={{ flex: 1 }}>
             {this.props.header}
-            <UIMain>{this.props.children}</UIMain>
+            <UIMain plus={this.props.plus}>{this.props.children}</UIMain>
           </ScrollView>
+          {this.props.plus &&
+          <UIPlus>
+            <Button bg="#000" width="110%" onPress={this.handleLink}>
+              <Icon name="plus" size={60} color="#fff" />
+            </Button>
+          </UIPlus>}
         </SafeAreaView>
-      </Fragment>
+      </UIPage>
     );
   }
 }

@@ -12,5 +12,6 @@ export const UIButton = styled.TouchableOpacity`
 `;
 
 export const UIContent = styled.Text`
+  font-size: 17px;
   text-align: center;
 `;
