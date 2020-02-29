@@ -288,7 +288,7 @@ DEPENDENCIES:
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - boost-for-react-native
     - RSKImageCropper
 
@@ -405,4 +405,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: f4956b56871061ccc966b180e39ee972f4210923
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.4

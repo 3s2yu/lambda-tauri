@@ -63,6 +63,16 @@ bundletool build-apks --bundle=/MyApp/my_app.aab --output=/MyApp/my_app.apks
   --key-pass=file:/MyApp/key.pwd
 ```
 
+## React Devtools
+
+```
+//  Run react-devtools from the terminal to launch the standalone DevTools app:
+npx react-devtools
+
+// If you're not in a simulator then you also need to run the following in a command prompt:
+adb reverse tcp:8097 tcp:8097
+```
+
 ## Icons
 
 [Icons list](https://oblador.github.io/react-native-vector-icons/)
