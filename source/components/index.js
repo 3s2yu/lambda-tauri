@@ -6,9 +6,7 @@ import Button from './button';
 import List from './list';
 import Label from './label';
 import Icon from './icon';
-import Form from './form';
-import Input from './form/elements/input-component';
-import DatePicker from './form/elements/date-picker-component';
+import { Input, DatePicker } from './form';
 
 import RegistrationForm from './registration-form';
 
@@ -21,7 +19,6 @@ export {
   List,
   Label,
   Icon,
-  Form,
   Input,
   DatePicker,
 

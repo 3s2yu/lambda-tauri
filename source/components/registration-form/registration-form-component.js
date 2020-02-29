@@ -1,26 +1,25 @@
 import React, { Component } from "react";
 
-import config from "./elements/config";
-import { Form, Button } from '../index';
-
+import { Input, DatePicker, Button } from '../index';
 import { UIView, UIErrorMessage } from './registration-form-style';
 
 class RegistrationForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      struct: config.Struct,
-      options: config.options,
       data: {
         name: "",
-        birthDate: "",
-        deathDate: ""
+        birthDate: false,
+        deathDate: false
       },
       errorMessage: ""
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit = () => {
+  handleSubmit() {
     const validate = this.refs.registrationForm.getValue();
     if (!validate) {
       this.setState({
@@ -33,24 +32,23 @@ class RegistrationForm extends Component {
     }
   };
 
-  handleChange = formValue => {
-    this.setState({
-      data: formValue
+  handleChange(name) {
+    return value => this.setState({
+      data: {
+        ...this.state.data,
+        [name]: value
+      }
     });
   };
 
   render() {
-    const { struct, options, errorMessage } = this.state;
+    const { data, errorMessage } = this.state;
 
     return (
       <UIView>
-        <Form
-          ref="registrationForm"
-          type={struct}
-          options={options}
-          value={this.state.data}
-          onChange={formValue => this.handleChange(formValue)}
-        />
+        <Input label="Nome" placeholder="Digite um nome" onChange={this.handleChange('name')} />
+        <DatePicker value={data.birthDate} placeholder="Escolha a data de nascimento" onChange={this.handleChange('birthDate')} />
+        <DatePicker value={data.deathDate} placeholder="Escolha a data de falecimento" onChange={this.handleChange('deathDate')} />
         <Button onPress={() => this.handleSubmit()} width="100%">Cadastrar</Button>
         <UIErrorMessage>{errorMessage}</UIErrorMessage>
       </UIView>

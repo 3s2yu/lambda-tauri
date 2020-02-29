@@ -1,5 +1,7 @@
-import t from "tcomb-form-native";
+import Input from './elements/input-component';
+import DatePicker from './elements/date-picker-component';
 
-const Form = t.form.Form;
-
-export default Form;
+export {
+  Input,
+  DatePicker
+};
