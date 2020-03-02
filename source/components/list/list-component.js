@@ -13,7 +13,7 @@ class PeopleList extends Component {
     super(props);
 
     this.state = {
-      list: [],
+      list: props.list,
     };
 
     this.handleLink = this.handleLink.bind(this);

@@ -1,3 +1,3 @@
-import List from './list-component';
+import List from './list-container';
 
 export default List;
