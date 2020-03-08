@@ -15,6 +15,6 @@ export const UIInput = styled.TextInput`
   border-radius: 4px;
   color: #a1a1a1;
   font-size: 17px;
-  height: 40px;
+  height: 50px;
   padding: 0 10px;
 `;

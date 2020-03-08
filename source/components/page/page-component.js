@@ -21,8 +21,8 @@ class Page extends Component {
           </ScrollView>
           {this.props.plus &&
           <UIPlus>
-            <Button bg="#000" width="110%" onPress={this.handleLink}>
-              <Icon name="plus" size={60} color="#fff" />
+            <Button bg="#000" width="60px" onPress={this.handleLink}>
+              <Icon name="plus" size={50} color="#fff" />
             </Button>
           </UIPlus>}
         </SafeAreaView>

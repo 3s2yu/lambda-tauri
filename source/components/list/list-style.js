@@ -15,7 +15,7 @@ export const UIContent = styled.View`
   background-color: #fff;
   border-bottom-width: 1px;
   border-bottom-color: #e1e1e1;
-  box-shadow: 0 2px 4px #000;
+  box-shadow: 0 2px 4px #ccc;
   flex: 1;
   flex-direction: row;
   padding: 10px;

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Platform } from 'react-native';
-import DateTimePicker from '@react-native-community/datetimepicker';
+import DateTimePicker from 'react-native-modal-datetime-picker';
 
 import { Button } from '../../index';
 import { UIView } from './date-picker-style';
@@ -16,8 +15,9 @@ class DatePicker extends Component {
       formattedValue: this.getFormattedValue(props.value)
     };
 
-    this.handleClick = this.handleClick.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleShow = this.handleShow.bind(this);
+    this.handleHide = this.handleHide.bind(this);
+    this.handleConfirm = this.handleConfirm.bind(this);
   }
 
  componentDidUpdate(prevProps, prevState) {
@@ -29,7 +29,7 @@ class DatePicker extends Component {
   }
 
   getFormattedValue(value) {
-    if (value) {
+    if (value && value.getUTCDate) {
       const day = value.getUTCDate();
       const month = value.getUTCMonth() + 1;
       const year = value.getUTCFullYear();
@@ -45,38 +45,45 @@ class DatePicker extends Component {
     return formattedValue || placeholder;
   }
 
-  handleClick() {
+  handleShow() {
     this.setState({ show: true });
   }
 
-  handleChange(event, value) {
+  handleHide() {
+    this.setState({ show: false });
+  }
+
+  handleConfirm(value) {
     const { onChange } = this.props;
 
     onChange(this.getFormattedValue(value));
 
     this.setState({
-      show: Platform.OS === 'ios' ? true : false,
+      show: false,
       value
     });
   }
 
   render() {
-    const { show, value } = this.state;
+    const { show, value, placeholder } = this.state;
 
     return (
       <UIView>
-        <Button width="100%" onPress={this.handleClick}>{this.getLabel()}</Button>
-        {show && (
-          <DateTimePicker
-            value={value}
-            mode="date"
-            display="default"
-            minimumDate={new Date(1800, 1, 1)}
-            maximumDate={new Date(2100, 1, 1)}
-            locale="pt-BR"
-            onChange={this.handleChange}
-          />
-        )}
+        <Button width="100%" color="#ccc" onPress={this.handleShow}>{this.getLabel()}</Button>
+        <DateTimePicker
+          contentStyle={{ color: '#333' }}
+          value={value}
+          mode="date"
+          minimumDate={new Date(1800, 1, 1)}
+          maximumDate={new Date(2100, 1, 1)}
+          locale="pt-BR"
+          onConfirm={this.handleConfirm}
+          onCancel={this.handleHide}
+          isVisible={show}
+          cancelTextIOS="Cancelar"
+          confirmTextIOS="Confirmar"
+          headerTextIOS={placeholder}
+        />
       </UIView>
     );
   }

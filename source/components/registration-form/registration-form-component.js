@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import { Input, DatePicker, Button } from '../index';
-import { UIView, UIErrorMessage } from './registration-form-style';
+import { UIView, UIActions, UIErrorMessage } from './registration-form-style';
 
 class RegistrationForm extends Component {
   constructor(props) {
@@ -49,7 +49,9 @@ class RegistrationForm extends Component {
         <Input label="Nome" placeholder="Digite um nome" onChange={this.handleChange('name')} />
         <DatePicker value={data.birthDate} placeholder="Escolha a data de nascimento" onChange={this.handleChange('birthDate')} />
         <DatePicker value={data.deathDate} placeholder="Escolha a data de falecimento" onChange={this.handleChange('deathDate')} />
-        <Button onPress={() => this.handleSubmit()} width="100%">Cadastrar</Button>
+        <UIActions>
+          <Button onPress={() => this.handleSubmit()} bg="#d1618a" color="#fff" width="70%" height="50px">Cadastrar</Button>
+        </UIActions>
         <UIErrorMessage>{errorMessage}</UIErrorMessage>
       </UIView>
     );

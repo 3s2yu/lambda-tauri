@@ -6,11 +6,12 @@ import * as Actions from '../../actions';
 
 class ListContainer extends Component {
   render() {
-    const { list, actions } = this.props;
+    const { list, navigation, actions } = this.props;
 
     return (
       <List
         list={list}
+        navigation={navigation}
         {...actions} />
     );
   }
