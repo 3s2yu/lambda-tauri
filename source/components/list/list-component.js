@@ -35,7 +35,7 @@ class PeopleList extends Component {
   }
 
   handleEdit(data) {
-    return () => this.props.navigation.navigate('Registration', data);
+    return () => this.props.navigation.navigate('CreateAndUpdate', data);
   }
 
   getDaysLeft(date) {

@@ -8,7 +8,7 @@ import Label from './label';
 import Icon from './icon';
 import { Input, DatePicker } from './form';
 
-import RegistrationForm from './registration-form';
+import CreateAndUpdateForm from './create-and-update-form';
 
 export {
   Page,
@@ -22,5 +22,5 @@ export {
   Input,
   DatePicker,
 
-  RegistrationForm
+  CreateAndUpdateForm
 };

@@ -9,7 +9,7 @@ import HomeScreen from './screens/home';
 import SearchScreen from './screens/search';
 import SettingsScreen from './screens/settings';
 import ProfileScreen from './screens/profile';
-import RegistrationScreen from './screens/registration';
+import CreateAndUpdateScreen from './screens/create-and-update';
 
 enableScreens();
 
@@ -72,8 +72,8 @@ export default function App() {
         <Stack.Screen name="Profile" component={ProfileScreen} options={({ route }) => ({
           headerTitle: route.params.name
         })} />
-        <Stack.Screen name="Registration" component={RegistrationScreen} options={({ route }) => ({
-          headerTitle: 'Novo cadastro'
+        <Stack.Screen name="CreateAndUpdate" component={CreateAndUpdateScreen} options={({ route }) => ({
+          headerTitle: route.params.name ? 'Editar perfil' : 'Novo cadastro'
         })} />
       </Stack.Navigator>
     </NavigationContainer>

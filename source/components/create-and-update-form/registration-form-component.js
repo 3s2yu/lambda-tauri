@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { Input, DatePicker, Button } from '../index';
 import { UIView, UIActions, UIError, UIErrorMessage } from './registration-form-style';
 
-class RegistrationForm extends Component {
+class CreateAndUpdateForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -64,4 +64,4 @@ class RegistrationForm extends Component {
   }
 }
 
-export default RegistrationForm;
+export default CreateAndUpdateForm;

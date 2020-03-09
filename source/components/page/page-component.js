@@ -7,7 +7,7 @@ import { UIPage, UIMain, UIPlus } from './page-style';
 
 class Page extends Component {
   handleLink = () => {
-    return this.props.navigation.navigate('Registration', {});
+    return this.props.navigation.navigate('CreateAndUpdate', {});
   }
 
   render() {
