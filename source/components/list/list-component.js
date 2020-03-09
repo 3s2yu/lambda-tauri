@@ -30,12 +30,14 @@ class PeopleList extends Component {
     });
   }
 
-  handleLink(name, image) {
-    return () => this.props.navigation.navigate('Profile', { name, image });
+  handleLink(data) {
+    const image = { hasImage: data.hasImage, imagePath: data.imagePath };
+    return () => this.props.navigation.navigate('Profile', { ...data, image });
   }
 
   handleEdit(data) {
-    return () => this.props.navigation.navigate('CreateAndUpdate', data);
+    const image = { hasImage: data.hasImage, imagePath: data.imagePath };
+    return () => this.props.navigation.navigate('CreateAndUpdate', { ...data, image });
   }
 
   getDaysLeft(date) {
@@ -128,7 +130,7 @@ class PeopleList extends Component {
                   <Button bg="#d15151" leftSpace={true} onPress={() => alert(item.name)}>
                     <Icon name="trash" size={32} color="#fff" />
                   </Button>
-                  <Button bg="#f1f1f1" leftSpace={true} onPress={this.handleLink(item.name, { hasImage: item.hasImage, imagePath: item.imagePath })}>
+                  <Button bg="#f1f1f1" leftSpace={true} onPress={this.handleLink(item)}>
                     <Icon name="eye" size={32} color="#32366b" />
                   </Button>
                 </UIButtons>

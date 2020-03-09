@@ -12,6 +12,23 @@ export const UIView = styled.View`
   padding: 10px;
 `;
 
+export const UIAvatar = styled.View`
+  align-items: center;
+  flex: 1;
+  position: relative;
+`;
+
+export const UIEdit = styled.View`
+  border: 1px solid #b7406d;
+  border-radius: 32px;
+  flex: 1;
+  margin-right: -90px;
+  overflow: hidden;
+  position: absolute;
+  bottom: 10px;
+  right: 50%;
+`;
+
 export const UIError = styled.View`
   background: #ffb4b4;
   border: 1px solid #900;

@@ -1,3 +1,3 @@
-import RegistrationForm from './registration-form-component';
+import CreateAndUpdateForm from './create-and-update-form-component';
 
-export default RegistrationForm;
+export default CreateAndUpdateForm;
