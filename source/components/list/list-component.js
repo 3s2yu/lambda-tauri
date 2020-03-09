@@ -34,8 +34,8 @@ class PeopleList extends Component {
     return () => this.props.navigation.navigate('Profile', { name, image });
   }
 
-  handleEdit(name) {
-    return () => this.props.navigation.navigate('Registration', { name });
+  handleEdit(data) {
+    return () => this.props.navigation.navigate('Registration', data);
   }
 
   getDaysLeft(date) {
@@ -122,7 +122,7 @@ class PeopleList extends Component {
                   <Button bg={item.active ? '#333' : '#f1f1f1'} onPress={() => alert(item.name)}>
                     <Icon name="bell" size={32} color={item.active ? '#fff' : '#32366b'} />
                   </Button>
-                  <Button bg="#f1f1f1" leftSpace={true} onPress={this.handleEdit(item.name)}>
+                  <Button bg="#f1f1f1" leftSpace={true} onPress={this.handleEdit(item)}>
                     <Icon name="pencil" size={32} color="#32366b" />
                   </Button>
                   <Button bg="#d15151" leftSpace={true} onPress={() => alert(item.name)}>

@@ -14,7 +14,7 @@ export const UILabel = styled.Text`
 export const UIInput = styled.TextInput`
   background: #fff;
   border-radius: 4px;
-  color: #a1a1a1;
+  color: #333;
   font-size: 17px;
   height: 50px;
   padding: 0 15px;

@@ -29,15 +29,19 @@ class DatePicker extends Component {
   }
 
   getFormattedValue(value) {
-    if (value && value.getUTCDate) {
+    if (!value) {
+      return value;
+    }
+
+    if (value.getUTCDate) {
       const day = value.getUTCDate();
       const month = value.getUTCMonth() + 1;
       const year = value.getUTCFullYear();
 
       return `${day}.${('0'+month).slice(-2)}.${year}`;
+    } else {
+      return value;
     }
-
-    return false;
   }
 
   getLabel() {

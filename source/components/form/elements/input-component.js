@@ -3,7 +3,7 @@ import { UIView, UILabel, UIInput } from './input-style';
 
 class Input extends Component {
   render() {
-    const { label, placeholder, onChange } = this.props;
+    const { label, placeholder, value, onChange } = this.props;
 
     return (
       <UIView>
@@ -11,6 +11,7 @@ class Input extends Component {
         <UIInput
           placeholder={placeholder}
           onChangeText={onChange}
+          value={value}
         />
       </UIView>
     );

@@ -8,10 +8,11 @@ class RegistrationForm extends Component {
     super(props);
     this.state = {
       data: {
-        name: "",
-        birthDate: false,
-        deathDate: false
+        name: props.data.name,
+        birthDate: props.data.birthDate || false,
+        deathDate: props.data.deathDate || false
       },
+      edit: props.data.name ? true : false,
       errorMessage: ""
     };
 
@@ -43,15 +44,15 @@ class RegistrationForm extends Component {
   };
 
   render() {
-    const { data, errorMessage } = this.state;
+    const { data, errorMessage, edit } = this.state;
 
     return (
       <UIView>
-        <Input placeholder="Digite um nome" onChange={this.handleChange('name')} />
+        <Input placeholder="Digite um nome" onChange={this.handleChange('name')} value={data.name} />
         <DatePicker value={data.birthDate} placeholder="Escolha a data de nascimento" onChange={this.handleChange('birthDate')} />
         <DatePicker value={data.deathDate} placeholder="Escolha a data de falecimento" onChange={this.handleChange('deathDate')} />
         <UIActions>
-          <Button onPress={() => this.handleSubmit()} bg="#d1618a" color="#fff" width="70%" height="50px">Cadastrar</Button>
+        <Button onPress={() => this.handleSubmit()} bg="#d1618a" color="#fff" width="70%" height="50px">{edit ? 'Editar' : 'Cadastrar'}</Button>
         </UIActions>
         {errorMessage !== '' &&
           <UIError>
