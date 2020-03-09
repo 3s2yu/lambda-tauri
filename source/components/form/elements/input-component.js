@@ -7,7 +7,7 @@ class Input extends Component {
 
     return (
       <UIView>
-        <UILabel>{label}</UILabel>
+        {label && <UILabel>{label}</UILabel>}
         <UIInput
           placeholder={placeholder}
           onChangeText={onChange}

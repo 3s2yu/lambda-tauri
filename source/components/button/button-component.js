@@ -10,11 +10,12 @@ class Button extends Component {
     leftSpace: false,
     rightSpace: false,
     height: 'auto',
+    textAlign: 'center',
     width: '18%'
   }
 
   render() {
-    const { children, onPress, theme, bg, underlayColor, width, leftSpace, rightSpace, height, color } = this.props;
+    const { children, onPress, theme, bg, underlayColor, width, leftSpace, rightSpace, height, color, textAlign } = this.props;
 
     return (
       <UIButton
@@ -27,7 +28,10 @@ class Button extends Component {
         rightSpace={rightSpace}
         underlayColor="#ccc"
       >
-        <UIContent color={color}>{children}</UIContent>
+        <UIContent
+          color={color}
+          textAlign={textAlign}
+        >{children}</UIContent>
       </UIButton>
     );
   }

@@ -16,5 +16,6 @@ export const UIButton = styled.TouchableOpacity`
 export const UIContent = styled.Text`
   color: ${props => props.color};
   font-size: 17px;
-  text-align: center;
+  text-align: ${props => props.textAlign};
+  width: 100%;
 `;

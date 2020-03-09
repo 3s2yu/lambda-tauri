@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import { Input, DatePicker, Button } from '../index';
-import { UIView, UIActions, UIErrorMessage } from './registration-form-style';
+import { UIView, UIActions, UIError, UIErrorMessage } from './registration-form-style';
 
 class RegistrationForm extends Component {
   constructor(props) {
@@ -20,14 +20,15 @@ class RegistrationForm extends Component {
   }
 
   handleSubmit() {
-    const validate = this.refs.registrationForm.getValue();
+    const { data : { name, birthDate, deathDate } } = this.state;
+    const validate = name && birthDate && deathDate;
     if (!validate) {
       this.setState({
         errorMessage: "Ops! Por favor verificar os dados"
       });
     } else {
       this.setState({
-        errorMessage: ""
+        errorMessage: ''
       });
     }
   };
@@ -46,13 +47,17 @@ class RegistrationForm extends Component {
 
     return (
       <UIView>
-        <Input label="Nome" placeholder="Digite um nome" onChange={this.handleChange('name')} />
+        <Input placeholder="Digite um nome" onChange={this.handleChange('name')} />
         <DatePicker value={data.birthDate} placeholder="Escolha a data de nascimento" onChange={this.handleChange('birthDate')} />
         <DatePicker value={data.deathDate} placeholder="Escolha a data de falecimento" onChange={this.handleChange('deathDate')} />
         <UIActions>
           <Button onPress={() => this.handleSubmit()} bg="#d1618a" color="#fff" width="70%" height="50px">Cadastrar</Button>
         </UIActions>
-        <UIErrorMessage>{errorMessage}</UIErrorMessage>
+        {errorMessage !== '' &&
+          <UIError>
+            <UIErrorMessage>{errorMessage}</UIErrorMessage>
+          </UIError>
+        }
       </UIView>
     );
   }

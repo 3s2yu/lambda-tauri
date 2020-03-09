@@ -42,7 +42,10 @@ class DatePicker extends Component {
 
   getLabel() {
     const { formattedValue, placeholder } = this.state;
-    return formattedValue || placeholder;
+    return {
+      value: formattedValue || placeholder,
+      color: formattedValue ? '#333' : '#ccc'
+    }
   }
 
   handleShow() {
@@ -66,12 +69,13 @@ class DatePicker extends Component {
 
   render() {
     const { show, value, placeholder } = this.state;
+    const label = this.getLabel();
 
     return (
       <UIView>
-        <Button width="100%" color="#ccc" onPress={this.handleShow}>{this.getLabel()}</Button>
+        <Button textAlign="left" width="100%" color={label.color} leftSpace onPress={this.handleShow}>{label.value}</Button>
         <DateTimePicker
-          contentStyle={{ color: '#333' }}
+          style={{ color: '#333' }}
           value={value}
           mode="date"
           minimumDate={new Date(1800, 1, 1)}

@@ -8,6 +8,7 @@ export const UIView = styled.View`
 export const UILabel = styled.Text`
   color: #a1a1a1;
   font-size: 17px;
+  margin-bottom: 5px;
 `;
 
 export const UIInput = styled.TextInput`
@@ -16,5 +17,5 @@ export const UIInput = styled.TextInput`
   color: #a1a1a1;
   font-size: 17px;
   height: 50px;
-  padding: 0 10px;
+  padding: 0 15px;
 `;
