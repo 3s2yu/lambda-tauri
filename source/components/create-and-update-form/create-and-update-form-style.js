@@ -1,6 +1,18 @@
 import { View, Text } from 'react-native';
 import styled from 'styled-components/native';
 
+export const UIPLaceholder = styled.View`
+  align-items: center;
+  background: #ccc;
+  border-radius: 10px;
+  flex: 1;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  height: 200px;
+  width: 200px;
+`;
+
 export const UIActions = styled.View`
   align-items: center;
   flex: 1;
@@ -27,6 +39,12 @@ export const UIEdit = styled.View`
   position: absolute;
   bottom: 10px;
   right: 50%;
+`;
+
+export const UILabel = styled.Text`
+  color: #a1a1a1;
+  font-size: 17px;
+  margin-bottom: 5px;
 `;
 
 export const UIError = styled.View`

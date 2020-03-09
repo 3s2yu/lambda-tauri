@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ImagePicker from 'react-native-image-crop-picker';
 
 import { Input, DatePicker, Button, Avatar, Icon } from '../index';
-import { UIView, UIActions, UIError, UIErrorMessage, UIAvatar, UIEdit } from './create-and-update-form-style';
+import { UIView, UIActions, UILabel, UIError, UIErrorMessage, UIAvatar, UIEdit, UIPLaceholder } from './create-and-update-form-style';
 
 class CreateAndUpdateForm extends Component {
   constructor(props) {
@@ -47,12 +47,12 @@ class CreateAndUpdateForm extends Component {
   };
 
   renderImage(image) {
-    if (!image.hasImage) {
-      return null;
-    }
     return (
       <UIAvatar>
-        <Avatar hasImage={image.hasImage} imagePath={image.imagePath} size={200} />
+        { image && image.hasImage ?
+          <Avatar hasImage={image.hasImage} imagePath={image.imagePath} size={200} />
+          : <UIPLaceholder><Icon name="camera" size={200} color="#e2e2e2" /></UIPLaceholder>
+        }
         <UIEdit>
           <Button bg="#d1618a" width="auto" onPress={() => this.pickSingleBase64(false)}>
             <Icon name="pencil" size={32} color="#fff" />
@@ -84,8 +84,10 @@ class CreateAndUpdateForm extends Component {
     return (
       <UIView>
         {this.renderImage(data.image)}
-        <Input placeholder="Digite um nome" onChange={this.handleChange('name')} value={data.name} />
+        <Input label="Nome" placeholder="Digite um nome" onChange={this.handleChange('name')} value={data.name} />
+        <UILabel>Data de nascimento</UILabel>
         <DatePicker value={data.birthDate} placeholder="Escolha a data de nascimento" onChange={this.handleChange('birthDate')} />
+        <UILabel>Data de óbito</UILabel>
         <DatePicker value={data.deathDate} placeholder="Escolha a data de falecimento" onChange={this.handleChange('deathDate')} />
         <UIActions>
         <Button onPress={() => this.handleSubmit()} bg="#d1618a" color="#fff" width="70%" height="50px">{edit ? 'Editar' : 'Cadastrar'}</Button>
