@@ -30,14 +30,12 @@ class PeopleList extends Component {
     });
   }
 
-  handleLink(data) {
-    const image = { hasImage: data.hasImage, imagePath: data.imagePath };
-    return () => this.props.navigation.navigate('Profile', { ...data, image });
+  handleLink(data) {;
+    return () => this.props.navigation.navigate('Profile', data);
   }
 
   handleEdit(data) {
-    const image = { hasImage: data.hasImage, imagePath: data.imagePath };
-    return () => this.props.navigation.navigate('CreateAndUpdate', { ...data, image });
+    return () => this.props.navigation.navigate('CreateAndUpdate', data);
   }
 
   getDaysLeft(date) {
@@ -61,7 +59,7 @@ class PeopleList extends Component {
           item.open = false;
         }
 
-        if (id === item.id) {
+        if (id === item.name) {
           item.open = !item.open;
           item.animation = new Animated.Value(item.open ? 0 : 50);
         }
@@ -95,23 +93,23 @@ class PeopleList extends Component {
       <>
         {list.map(item => {
           return (
-            <UIItem key={item.id}>
+            <UIItem key={item.name}>
               <UIDescription>
                 <UIHeader>
                   <UIName>{item.name}</UIName>
-                  <Button bg="transparent" width="auto" onPress={this.handleOptions(item.id)}>
+                  <Button bg="transparent" width="auto" onPress={this.handleOptions(item.name)}>
                     {item.open ? <Icon name="minus" size={32} color="#a1a1a1" /> : <Icon name="plus" size={32} color="#a1a1a1" />}
                   </Button>
                 </UIHeader>
                 <UIContent>
-                  <Avatar hasImage={item.hasImage} imagePath={item.imagePath} />
+                  <Avatar image={item.image} />
                   <UIDescription>
                     <UIDates>
                       {item.birthDate &&
                       <Label bg="#d1618a" width={!item.deathDate ? '100%' : '50%'} daysLeft={this.getDaysLeft(item.birthDate)} icon={<Icon name="star" size={20} color="#fff" />}>
                         {item.birthDate}
                       </Label>}
-                      {item.deathDate &&
+                      {item.deathDate !== '' &&
                       <Label bg="#32366b" daysLeft={this.getDaysLeft(item.deathDate)} icon={<Icon name="heart" size={20} color="#fff" />}>
                         {item.deathDate}
                       </Label>}

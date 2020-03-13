@@ -7,8 +7,8 @@ class Avatar extends Component {
   }
 
   render() {
-    const { hasImage, imagePath, size } = this.props;
-    return hasImage ? <UIImage source={{ uri: imagePath }} size={size} /> : <UIImage source={{ uri: 'https://place-hold.it/100x100/ccc' }} size={size} />;
+    const { image, size } = this.props;
+    return image && image !== '' ? <UIImage source={{ uri: image }} size={size} /> : <UIImage source={{ uri: 'https://place-hold.it/100x100/ccc' }} size={size} />;
   }
 }
 

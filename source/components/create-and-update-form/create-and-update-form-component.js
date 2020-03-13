@@ -49,8 +49,8 @@ class CreateAndUpdateForm extends Component {
   renderImage(image) {
     return (
       <UIAvatar>
-        { image && image.hasImage ?
-          <Avatar hasImage={image.hasImage} imagePath={image.imagePath} size={200} />
+        { image && image !== '' ?
+          <Avatar image={image} size={200} />
           : <UIPLaceholder><Icon name="camera" size={200} color="#e2e2e2" /></UIPLaceholder>
         }
         <UIEdit>

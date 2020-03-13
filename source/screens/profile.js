@@ -9,7 +9,7 @@ class ProfileScreen extends Component {
 
     return (
       <Page header={<Header />}>
-        <Avatar hasImage={image.hasImage} imagePath={image.imagePath} />
+        <Avatar image={image} />
         <Text>{name}</Text>
       </Page>
     );
