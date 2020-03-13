@@ -13,6 +13,10 @@ import Navigator from './navigator';
 loadMessages(messages);
 
 class RootContainer extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <ThemeProvider theme={colors}>
