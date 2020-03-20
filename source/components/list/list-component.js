@@ -5,8 +5,8 @@ import moment from 'moment';
 import { Avatar, Button, Label, Icon } from '../index';
 import { UIItem, UIContent, UIDescription, UIName, UIDates, UIButtons, UIHeader } from './list-style';
 
-import services from '../../services';
-import data from '../../data';
+// import services from '../../services';
+// import data from '../../data';
 
 class PeopleList extends Component {
   constructor(props) {
@@ -20,14 +20,13 @@ class PeopleList extends Component {
     this.handleEdit = this.handleEdit.bind(this);
     this.handleOptions = this.handleOptions.bind(this);
 
-    services.storage.getItem('list').then(res => {
-      if (!res) {
-        console.log('storage empty!!');
-        services.storage.setItem('list', data).then(res => this.setState({ list: res }));
-      }
-
-      this.setState({ list: res });
-    });
+    // services.storage.getItem('list').then(res => {
+    //   if (!res) {
+    //     console.log('storage empty!!');
+    //     services.storage.setItem('list', data).then(res => this.setState({ list: res }));
+    //   }
+    //   this.setState({ list: res });
+    // });
   }
 
   handleLink(data) {;
@@ -49,7 +48,7 @@ class PeopleList extends Component {
     const dayLeft = diff(formattedDate);
     const result = dayLeft < 0 ? diff(formattedDate.replace(currentYear, `${parseInt(currentYear)+1}`)) : dayLeft;
 
-    return `${result} dias`;
+    return result === 0 ? `Dia e mês atual` : `${result} dias`;
   }
 
   handleOptions(id) {
@@ -119,8 +118,8 @@ class PeopleList extends Component {
               </UIDescription>
               <Animated.View style={[{ height: 0, overflow:'hidden'}, this.toggle(item.open, item.animation)]}>
                 <UIButtons>
-                  <Button bg={item.active ? '#333' : '#f1f1f1'} onPress={() => alert(item.name)}>
-                    <Icon name="bell" size={32} color={item.active ? '#fff' : '#32366b'} />
+                  <Button bg={item.notify ? '#333' : '#f1f1f1'} onPress={() => alert(item.name)}>
+                    <Icon name="bell" size={32} color={item.notify ? '#fff' : '#32366b'} />
                   </Button>
                   <Button bg="#f1f1f1" leftSpace={true} onPress={this.handleEdit(item)}>
                     <Icon name="pencil" size={32} color="#32366b" />

@@ -10,11 +10,26 @@ import { colors } from './constants';
 
 import Navigator from './navigator';
 
+import PouchDB, { DB_NAME, SYNC_URL } from './utils/pouchdb';
+
+const db = new PouchDB(`${SYNC_URL}${DB_NAME}`)
+
 loadMessages(messages);
 
 class RootContainer extends Component {
   constructor(props) {
     super(props);
+
+    db.find({
+      selector: {
+        name: {'$exists': true}
+      },
+      fields: ['name']
+    }).then(result => {
+      console.log(result);
+    }).catch(err => {
+      console.log(err);
+    });
   }
 
   render() {
