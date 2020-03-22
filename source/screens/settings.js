@@ -4,7 +4,7 @@ import { View, Text } from 'react-native';
 import styled from 'styled-components/native';
 import { GlobalizeProvider, loadMessages, FormattedMessage } from 'react-native-globalize';
 
-import { changeLanguage } from '../actions'
+import { changeLanguage } from '../store/actions'
 import { Button, Header, Page } from '../components';
 import messages from '../messages';
 

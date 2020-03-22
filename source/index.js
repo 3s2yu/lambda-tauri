@@ -5,12 +5,14 @@ import { GlobalizeProvider, loadMessages } from 'react-native-globalize';
 import SplashScreen from 'react-native-splash-screen';
 
 import store from './store';
+import { loadData } from './store/actions';
+
 import messages from './messages';
 import { colors } from './constants';
 
 import Navigator from './navigator';
 
-import PouchDB, { DB_NAME, SYNC_URL } from './utils/pouchdb';
+import PouchDB, { DB_NAME, SYNC_URL } from './services/pouchdb';
 
 const db = new PouchDB(`${SYNC_URL}${DB_NAME}`)
 
@@ -26,7 +28,7 @@ class RootContainer extends Component {
       },
       fields: ['name']
     }).then(result => {
-      console.log(result);
+      loadData(result.docs);
     }).catch(err => {
       console.log(err);
     });

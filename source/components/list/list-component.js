@@ -5,9 +5,6 @@ import moment from 'moment';
 import { Avatar, Button, Label, Icon } from '../index';
 import { UIItem, UIContent, UIDescription, UIName, UIDates, UIButtons, UIHeader } from './list-style';
 
-// import services from '../../services';
-// import data from '../../data';
-
 class PeopleList extends Component {
   constructor(props) {
     super(props);
@@ -19,14 +16,6 @@ class PeopleList extends Component {
     this.handleLink = this.handleLink.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
     this.handleOptions = this.handleOptions.bind(this);
-
-    // services.storage.getItem('list').then(res => {
-    //   if (!res) {
-    //     console.log('storage empty!!');
-    //     services.storage.setItem('list', data).then(res => this.setState({ list: res }));
-    //   }
-    //   this.setState({ list: res });
-    // });
   }
 
   handleLink(data) {;

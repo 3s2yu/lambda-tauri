@@ -3,7 +3,10 @@ export const changeLanguage = language => ({
   payload: { language },
 });
 
-export const loadData = data => ({
+export const loadData = data => {
+  console.log(data, '+++++ action');
+
+  return {
   type: 'DATA_LOAD',
   payload: { data },
-});
+}};
