@@ -5,10 +5,7 @@ export const changeLanguage = language => ({
   payload: { language },
 });
 
-export const loadData = data => {
-  console.log(data, '+++++ action');
-
-  return {
+export const loadData = data => ({
   type: DATA_LOAD,
   payload: { data },
-}};
+});

@@ -7,8 +7,6 @@ import * as Actions from '../../store/actions';
 class ListContainer extends Component {
   render() {
     const { list, navigation, actions } = this.props;
-
-    console.log(list, ' <<<<<<<----- list container');
     return (
       <List
         list={list}
@@ -18,11 +16,8 @@ class ListContainer extends Component {
   }
 }
 
-export default connect(state => {
-
-  console.log(state, ' ---- state');
-  return {
-  list: state.data ? state.data.list : []
-}}, dispatch => ({
+export default connect(({ data }) => ({
+  list: data ? data.list : []
+}), dispatch => ({
   actions: bindActionCreators(Actions, dispatch)
 }))(ListContainer);

@@ -27,9 +27,12 @@ class PeopleList extends Component {
   }
 
   getDaysLeft(date) {
-    // date = dd.mm.yyyy
+    if(!date) {
+      return null;
+    }
+    // date = yyyy-mm-dd
     const currentYear = moment().format('YYYY');
-    const formattedDate = [currentYear, date.split('.')[1], date.split('.')[0]].join('-');
+    const formattedDate = [currentYear, date.split('-')[1], date.split('-')[2]].join('-');
     const diff = date => {
       const currentDate = moment();
       return moment(date).diff(currentDate, 'days');
@@ -95,11 +98,11 @@ class PeopleList extends Component {
                     <UIDates>
                       {item.birthDate &&
                       <Label bg="#d1618a" width={!item.deathDate ? '100%' : '50%'} daysLeft={this.getDaysLeft(item.birthDate)} icon={<Icon name="star" size={20} color="#fff" />}>
-                        {item.birthDate}
+                        {moment(item.birthDate).format('DD.MM.YYYY')}
                       </Label>}
                       {item.deathDate !== '' &&
                       <Label bg="#32366b" daysLeft={this.getDaysLeft(item.deathDate)} icon={<Icon name="heart" size={20} color="#fff" />}>
-                        {item.deathDate}
+                        {moment(item.deathDate).format('DD.MM.YYYY')}
                       </Label>}
                     </UIDates>
                   </UIDescription>

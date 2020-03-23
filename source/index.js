@@ -3,10 +3,10 @@ import { Provider, connect } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import { GlobalizeProvider, loadMessages } from 'react-native-globalize';
 import SplashScreen from 'react-native-splash-screen';
+import { bindActionCreators } from 'redux';
+import * as Actions from './store/actions';
 
 import store from './store';
-import { loadData } from './store/actions';
-
 import messages from './messages';
 import { colors } from './constants';
 
@@ -26,9 +26,9 @@ class RootContainer extends Component {
       selector: {
         name: {'$exists': true}
       },
-      fields: ['name']
+      fields: ['name', 'birthDate', 'deathDate', 'image', 'notify']
     }).then(result => {
-      loadData(result.docs);
+      props.actions.loadData(result.docs);
     }).catch(err => {
       console.log(err);
     });
@@ -49,7 +49,9 @@ const mapStateToProps = state => {
   return state;
 };
 
-const ConnectedRootContainer = connect(mapStateToProps,null)(RootContainer);
+const ConnectedRootContainer = connect(mapStateToProps, dispatch => ({
+  actions: bindActionCreators(Actions, dispatch)
+}))(RootContainer);
 
 const App = () => {
   useEffect(() => {

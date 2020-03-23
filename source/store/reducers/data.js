@@ -5,9 +5,6 @@ const INITIAL_STATE = {
 };
 
 export default (state = INITIAL_STATE, action) => {
-  console.log(action.type, ' ...... reducer TYPE');
-  console.log(DATA_LOAD, ' ...... reducer TYPE +++++');
-
 	switch (action.type) {
 	  case DATA_LOAD:
       return { ...state, list: action.payload.data };
