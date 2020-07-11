@@ -1,12 +1,17 @@
 import PouchDB from 'pouchdb-core';
 import HttpPouch from 'pouchdb-adapter-http';
-//import AsyncPouch from 'pouchdb-adapter-asyncstorage';
+import AsyncStoragePouch from 'pouchdb-adapter-asyncstorage';
+import mapreduce from 'pouchdb-mapreduce';
+import replication from 'pouchdb-replication';
 import FindPouch from 'pouchdb-find';
 
 export const DB_NAME = 'dobdoddatabase1';
 export const SYNC_URL = 'http://localhost:5984/';
 
-export default PouchDB
-  .plugin(HttpPouch)
-  //.plugin(AsyncPouch)
-  .plugin(FindPouch);
+PouchDB.plugin(HttpPouch)
+  .plugin(mapreduce)
+  .plugin(replication)
+  .plugin(FindPouch)
+  .plugin(AsyncStoragePouch);
+
+export default PouchDB;

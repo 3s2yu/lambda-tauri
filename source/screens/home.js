@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
-import { Header, Page, List } from '../components';
+import {Header, Page, List} from '../components';
 
 class HomeScreen extends Component {
   render() {

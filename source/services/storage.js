@@ -9,7 +9,6 @@ const storage = new Storage({
   sync: {}
 });
 
-
 const setItem = (key, data) => {
   return storage.save({
     key,

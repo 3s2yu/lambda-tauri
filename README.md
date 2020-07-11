@@ -1,12 +1,12 @@
 # Lambda tauri
 
 [![licence mit](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](http://hemersonvianna.mit-license.org/)
-[![GitHub issues](https://img.shields.io/github/issues/org-3s2yu/lambda-tauri.svg)](https://github.com/org-3s2yu/lambda-tauri/issues)
-![GitHub package.json version](https://img.shields.io/github/package-json/v/org-3s2yu/lambda-tauri.svg)
-![GitHub Release Date](https://img.shields.io/github/release-date/org-3s2yu/lambda-tauri.svg)
-![GitHub top language](https://img.shields.io/github/languages/top/org-3s2yu/lambda-tauri.svg)
-![GitHub repo size](https://img.shields.io/github/repo-size/org-3s2yu/lambda-tauri.svg)
-![GitHub All Releases](https://img.shields.io/github/downloads/org-3s2yu/lambda-tauri/total.svg)
+[![GitHub issues](https://img.shields.io/github/issues/3s2yu/lambda-tauri.svg)](https://github.com/3s2yu/lambda-tauri/issues)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/3s2yu/lambda-tauri.svg)
+![GitHub Release Date](https://img.shields.io/github/release-date/3s2yu/lambda-tauri.svg)
+![GitHub top language](https://img.shields.io/github/languages/top/3s2yu/lambda-tauri.svg)
+![GitHub repo size](https://img.shields.io/github/repo-size/3s2yu/lambda-tauri.svg)
+![GitHub All Releases](https://img.shields.io/github/downloads/3s2yu/lambda-tauri/total.svg)
 
 ## Generate Keystores
 
@@ -109,7 +109,7 @@ Questions and answers:
 
 ## Log
 
-Check [Releases](https://github.com/org-3s2yu/lambda-tauri/releases) for detailed changelog.
+Check [Releases](https://github.com/3s2yu/lambda-tauri/releases) for detailed changelog.
 
 ## License
 

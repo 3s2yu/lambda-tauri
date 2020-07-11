@@ -70,7 +70,6 @@ class CreateAndUpdateForm extends Component {
       includeBase64: true,
       includeExif: true,
     }).then(image => {
-      console.log('received base64 image');
       this.setState({
         image: {uri: `data:${image.mime};base64,`+ image.data, width: image.width, height: image.height},
         images: null

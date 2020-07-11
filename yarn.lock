@@ -8024,6 +8024,15 @@ pouchdb-mapreduce@7.0.0:
     pouchdb-mapreduce-utils "7.0.0"
     pouchdb-utils "7.0.0"
 
+pouchdb-mapreduce@7.2.1:
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/pouchdb-mapreduce/-/pouchdb-mapreduce-7.2.1.tgz#0122ddd3d532ca0463506677c30d4e3ddbf0aa66"
+  integrity sha512-HbuCqcZN8/YIm+FP+W8w90wjvZZTtFCPnTxH2/nnIH+zdGxqYwiFwtuRyuR6hMTza922+cBkvUa1iWq7G8Js9g==
+  dependencies:
+    pouchdb-abstract-mapreduce "7.2.1"
+    pouchdb-mapreduce-utils "7.2.1"
+    pouchdb-utils "7.2.1"
+
 pouchdb-md5@6.4.3:
   version "6.4.3"
   resolved "https://registry.yarnpkg.com/pouchdb-md5/-/pouchdb-md5-6.4.3.tgz#d414315366e4bb428fb6048a25655b1eca591797"

@@ -16,8 +16,10 @@ class ListContainer extends Component {
   }
 }
 
-export default connect(({ data }) => ({
-  list: data ? data.list : []
-}), dispatch => ({
-  actions: bindActionCreators(Actions, dispatch)
-}))(ListContainer);
+const mapStateToProps = ({ data }) => ({
+  list: data.list || []
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators(Actions, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(ListContainer);
