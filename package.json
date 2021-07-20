@@ -41,7 +41,7 @@
     "prop-types": "15.7.2",
     "random-token": "0.0.8",
     "react": "16.13.0",
-    "react-native": "0.61.5",
+    "react-native": "0.62.3",
     "react-native-datepicker": "1.7.2",
     "react-native-gesture-handler": "1.6.0",
     "react-native-globalize": "4.0.1",
