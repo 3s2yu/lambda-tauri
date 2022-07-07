@@ -30,7 +30,7 @@
     "@react-navigation/drawer": "5.0.7",
     "@react-navigation/native": "5.0.7",
     "@react-navigation/stack": "5.0.8",
-    "moment": "2.24.0",
+    "moment": "2.29.4",
     "pouchdb-adapter-asyncstorage": "6.4.1",
     "pouchdb-adapter-http": "7.2.1",
     "pouchdb-core": "7.2.1",
